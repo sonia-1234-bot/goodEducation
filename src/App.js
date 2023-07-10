@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import "bootstrap/dist/css/bootstrap.min.css"
+import Home from './Components/Home'
+import ContactUs from './Components/ContactUs'
+import WorkIt from './Components/WorkIt'
+import Portfolio from './Components/Portfolio'
+import Tutorial from './Components/Tutorial'
+import { BrowserRouter, Routes,Route } from 'react-router-dom'
+import Navbar from './Components/Navbar'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+<BrowserRouter>
+<Navbar></Navbar>
+<Routes>
+<Route path="/" element={<Home/>}></Route>
+<Route path="/workit" element={<WorkIt/>}></Route>
+<Route path="/portfolio" element={<Portfolio/>}></Route>
+<Route path="/tutorial" element={<Tutorial/>}></Route>
+<Route path="/contactus" element={<ContactUs/>}></Route>
+
+
+  </Routes>
+  
+  </BrowserRouter>
+
+    </>
+  )
 }
 
-export default App;
+export default App
